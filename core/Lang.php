@@ -1,15 +1,10 @@
 <?php
 $path = parse_url($_SERVER["REQUEST_URI"])["path"];
-$lang = "eng";
+
 if (isset($_REQUEST["lang"])) {
-    switch ($_REQUEST["lang"]) {
-        case "sin":
-            $lang = "sin";
-            break;
-        default:
-            $lang = "eng";
-            break;
-    }
+    $lang = $_REQUEST["lang"];
+} else {
+    $lang = "eng";
 }
 // echo "$lang";
 ?>

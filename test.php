@@ -1,5 +1,8 @@
 <?php
 
+header("location: index.php");
+die();
+
 require_once "core/DB.php";
 
 $db = new DB();

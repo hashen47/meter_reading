@@ -1,4 +1,9 @@
 <?php
+
+// login required
+require_once("loginrequired.php");
+
+
 require "core/DB.php";
 require "core/functions.php";
 
@@ -17,11 +22,9 @@ function validate()
     }
 
     // validate unit
-    if (!strcmp("0", $_POST["reading"])) {
-        if ((int)$_POST["reading"] == 0 || (int)$_POST["reading"] < 0) {
-            echo response("error", "invalid reading input");
-            die();
-        }
+    if ((int)$_POST["reading"] <= 0) {
+        echo response("error", "invalid reading");
+        die();
     }
 
     // validate cid
@@ -105,6 +108,9 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 <button>
                     <a href="index.php">Home</a>
                 </button>
+                <button>
+                    <a href="logout.php">Logout</a>
+                </button>
             </div>
             <div>
                 <h1>Set Reading</h1>
@@ -117,7 +123,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                     </div>
                     <div>
                         <label>Reading</label>
-                        <input type="number" id="reading" class="" min=0 />
+                        <input type="number" id="reading" class="" min="0" />
                     </div>
                     <div>
                         <label>Customer Id</label>
@@ -142,6 +148,9 @@ switch ($_SERVER["REQUEST_METHOD"]) {
             <div>
                 <button>
                     <a href="index.php">හෝම් පෙජය</a>
+                </button>
+                <button>
+                    <a href="logout.php">ලොග් අවුට් වන්න</a>
                 </button>
             </div>
             <div>

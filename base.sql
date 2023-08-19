@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2023 at 10:45 AM
+-- Generation Time: Aug 19, 2023 at 01:56 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -24,6 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `psw` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `name`, `psw`) VALUES
+(1, 'test1', '1111'),
+(2, 'test2', '2222'),
+(3, 'test3', '3333'),
+(4, 'test4', '4444'),
+(5, 'test5', '5555');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `readings`
 --
 
@@ -39,11 +62,13 @@ CREATE TABLE `readings` (
 
 INSERT INTO `readings` (`cid`, `rdate`, `unit`) VALUES
 ('10000001', '2023-06-16', 7),
-('10000001', '2023-07-16', 35),
+('10000001', '2023-07-16', 100),
 ('10000002', '2023-06-16', 11),
 ('10000002', '2023-07-16', 36),
+('10000002', '2023-08-19', 136),
 ('10000003', '2023-06-16', 3),
 ('10000003', '2023-07-16', 45),
+('10000003', '2023-08-19', 200),
 ('10000004', '2023-06-16', 11),
 ('10000004', '2023-07-16', 22),
 ('10000005', '2023-06-16', 6),
@@ -526,6 +551,12 @@ INSERT INTO `user_detail` (`cid`, `cname`) VALUES
 --
 
 --
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `readings`
 --
 ALTER TABLE `readings`
@@ -536,6 +567,16 @@ ALTER TABLE `readings`
 --
 ALTER TABLE `user_detail`
   ADD PRIMARY KEY (`cid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
